@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Tweet-DL": {
+      "commandName": "Project",
+      "commandLineArgs": "https://twitter.com/OrmilleF/status/1454657672704249856?s=20 1454081345592991744 https://twitter.com/JanMasked/status/1455112562014568453?t=mxYW0TAxyL3SUtCnkZeteQ&s=19 https://twitter.com/wolf_llz/status/1451207480474669062?s=20"
+    }
+  }
+}
