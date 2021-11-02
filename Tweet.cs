@@ -14,7 +14,7 @@ namespace Tweet_DL
         public JSON GetTweets(List<string> tweetIDs)
         {
             HttpRequestMessage request = new(HttpMethod.Get, "https://api.twitter.com/2/tweets?ids=" + string.Join(",", tweetIDs) + "&tweet.fields=attachments&expansions=attachments.media_keys&media.fields=url,type");
-            string result = ((_client.SendAsync(request)).Result.Content.ReadAsStringAsync()).Result;
+            string result = _client.SendAsync(request).Result.Content.ReadAsStringAsync().Result;
             return JsonSerializer.Deserialize<JSON>(result);
         }
         public class JSON

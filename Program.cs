@@ -54,6 +54,7 @@ namespace Tweet_DL
                     Tweet.JSON tweets;
                     try
                     {
+                        Console.WriteLine($"Getting images of {IDs.Count} Tweets...");
                         tweets = new Tweet(client, config).GetTweets(IDs);
                     } catch (HttpRequestException e)
                     {
@@ -65,7 +66,7 @@ namespace Tweet_DL
                     tweets.includes.media.ForEach(delegate (Tweet.JSON.Medium medium) {
                         if (medium.type == "photo") URLs.Add(medium.url);
                     });
-                    new Downloader(client).DownloadURLs(URLs);
+                    new Downloader(client, config.downloadDir, config.delay).DownloadURLs(URLs);
                 }
             } else
             {
