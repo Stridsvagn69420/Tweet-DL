@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Tweet_DL
+﻿namespace Tweet_DL
 {
     public class Config
     {

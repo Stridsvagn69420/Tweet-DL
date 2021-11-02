@@ -13,7 +13,11 @@ namespace Tweet_DL
 		}
 		public void DownloadURLs(List<string> URLs)
         {
+			for (int i = 0; i < URLs.Count; i++)
+            {
+				HttpRequestMessage httpRequest = new(HttpMethod.Get, URLs[i]);
 
+			}
         }
 	}
 }
