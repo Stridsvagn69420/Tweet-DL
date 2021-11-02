@@ -28,14 +28,14 @@ namespace Tweet_DL
             {
 				string filename = Path.GetFileName(URLs[i]);
 				string absolutePath = Path.Combine(_DownloadPath, filename);
-				Printer.Print(ConsoleColor.Blue, $"[{i+1}]");
+				Printer.Print(ConsoleColor.Blue, $"[{i+1}] ");
 				if (File.Exists(absolutePath))
                 {
 					Printer.Print(ConsoleColor.Cyan, filename);
 					Console.WriteLine(" already exists!");
                 } else {
 					HttpRequestMessage httpRequest = new(HttpMethod.Get, URLs[i]);
-					Console.Write(" Downloading ");
+					Console.Write("Downloading ");
 					Printer.Print(ConsoleColor.Red, filename);
 					byte[] image;
 					try
