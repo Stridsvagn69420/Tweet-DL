@@ -12,6 +12,8 @@
         }
         public class UserAuth
         {
+            public string cookie { get; set; }
+            public string csrfToken { get; set; }
 
         }
     }

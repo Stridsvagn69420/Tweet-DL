@@ -70,7 +70,19 @@ namespace Tweet_DL
                 }
             } else
             {
-                //download Twitter bookmarks
+                List<JSON> allJSON;
+                try
+                {
+                    allJSON = new Bookmarks(client, config).GetBookmarks();
+                }
+                catch (HttpRequestException e)
+                {
+                    Printer.PrintLine(ConsoleColor.Red, "An error occured while making a request to Twitter's API:");
+                    Printer.PrintLine(ConsoleColor.Red, e.Message);
+                    return 1;
+                }
+                List<string> allURLS = Bookmarks.ReadURLs(allJSON);
+                new Downloader(client, config.downloadDir, config.delay).DownloadURLs(allURLS);
             }
             client.Dispose();
             return 0;

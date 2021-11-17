@@ -1,8 +1,7 @@
 {
   "profiles": {
     "Tweet-DL": {
-      "commandName": "Project",
-      "commandLineArgs": "https://twitter.com/OrmilleF/status/1454657672704249856?s=20 1454081345592991744 https://twitter.com/JanMasked/status/1455112562014568453?t=mxYW0TAxyL3SUtCnkZeteQ&s=19 https://twitter.com/wolf_llz/status/1451207480474669062?s=20 https://twitter.com/katskirbyy/status/1454911573953236992?t=wb7R4fjFACSN5gPY3Sm74g&s=19 https://twitter.com/Iiekahp/status/1454515123880558592?s=20 https://twitter.com/usato21/status/1454497151002705924?s=20 https://twitter.com/SMGold_/status/1453406140277006342/photo/1 https://twitter.com/kakiko228/status/1451209115171102723?s=20 https://twitter.com/LiaLiar1/status/1451256543316520964?s=20 https://twitter.com/luxlocosplay/status/1450943303646646272?t=vEO_yXJeq7n_nDoRNLffYw&s=09 https://twitter.com/spaghettikuni/status/1448379467081129988?s=20 https://twitter.com/tsunsune/status/1447528658206343171?s=20"
+      "commandName": "Project"
     }
   }
 }
