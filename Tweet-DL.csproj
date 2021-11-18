@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,6 +6,12 @@
     <RootNamespace>Tweet_DL</RootNamespace>
     <StartupObject></StartupObject>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <DebugType>portable</DebugType>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <NeutralLanguage>en</NeutralLanguage>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Stridsvagn69420/Tweet-DL</RepositoryUrl>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
