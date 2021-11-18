@@ -61,7 +61,7 @@ Instead of placing the binary/making a symlink into a folder listed inside your 
 ```sh
 #!/bin/sh
 cd /path/to/tweetdl
-dotnet Tweet-DL.dll
+dotnet Tweet-DL.dll "$@"
 ```
 
 # Usage
