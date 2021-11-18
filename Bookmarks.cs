@@ -66,7 +66,7 @@ namespace Tweet_DL
                 {
                     result.Add(resJSON);
                     resCursor = resJSON.data.bookmark_timeline.timeline.instructions[0].entries.Find(x => x.entryId.StartsWith("cursor-bottom")).content.value;
-                    Thread.Sleep((int) Math.Round(_config.delay * 2.25));
+                    Thread.Sleep((int) Math.Round(_config.delay * 1.4));
                 }
             }
             return result;
