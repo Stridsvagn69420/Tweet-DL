@@ -4,7 +4,6 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>Tweet_DL</RootNamespace>
-    <StartupObject></StartupObject>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
     <DebugType>portable</DebugType>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
@@ -12,10 +11,23 @@
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/Stridsvagn69420/Tweet-DL</RepositoryUrl>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Copyright>Stridsvagn69420</Copyright>
+    <Description>A command-line downloader to download images from multiple Tweets or your bookmarks</Description>
+    <FileVersion>1.0.0.0</FileVersion>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>GPL-3.0</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Include="Icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
