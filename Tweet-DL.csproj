@@ -5,6 +5,11 @@
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>Tweet_DL</RootNamespace>
     <StartupObject></StartupObject>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Icon.ico" />
+  </ItemGroup>
 
 </Project>
