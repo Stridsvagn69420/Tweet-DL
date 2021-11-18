@@ -76,5 +76,5 @@ Download by Tweet URL:
 Download by Tweet ID:  
 `tweet-dl 1460488451304738817`
 
-Download multiple files:
+Download multiple files:  
 `tweet-dl 1460488451304738817 https://twitter.com/github/status/1460696683705208837?s=20`
