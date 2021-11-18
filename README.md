@@ -3,14 +3,12 @@ A command-line downloader to download images from multiple Tweets or your bookma
 
 # Installation
 ## Downloading the executable
-### Platform-Dependent
+### Platform-Dependent (Recommended if .NET SDK installed)
 Use this if you already have the .NET SDK installed:
-1. Download the latest Platform-Depdendent `.dll` file
-2. [How to run Platform-Dependent Applications](https://docs.microsoft.com/en-us/dotnet/core/deploying/#publish-framework-dependent)
+* Download the latest Platform-Depdendent `Tweet-DL.zip` and [configure it like this](#adding-execute-script-only-platform-dependent)
+* (WIP) Alternatively, you can install the Platform-Dependent version via the [jitter packet manager](https://github.com/Stridsvagn69420/jitter).
 
-(WIP) Alternatively, you can install the Platform-Dependent version via the [jitter packet manager](https://github.com/Stridsvagn69420/jitter).
-
-### Pre-compiled
+### Pre-compiled (Recommended)
 Pre-compiled versions available:  
 __Windows:__
 * Windows AMD64
@@ -26,12 +24,16 @@ Just download the one you need from GitHub's release page
 
 ### Self-compiled
 NOTE: You need to have .NET 6 SDK installed  
-(Optionally you can change the `<TargetFramework>` to `net5.0` if you already have .NET 5 SDK installed)
+(Optionally you can change the `<TargetFramework>` in `Tweet-DL.csproj` to `net5.0` if you already have .NET 5 SDK installed)
 
 Get the [Runtime-ID](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog) for your OS and run this command (replace <YOUR_RID> with your Runtime ID):
 ```sh
 dotnet publish -c Release -r <YOUR_RID> --self-contained true -p:PublishSingleFile=true -p:IncludeAllContentForSelfExtract=true -p:PublishTrimmed=True -p:TrimMode=CopyUsed
 ```
+
+### Clone repository
+Clone this repository and use `dotnet run` to run Tweet-DL.  
+NOTE: This will compile from source first and then execute the application, thus start-up time will be the longest.
 
 ## Setting up config.json
 This file needs to manually be added in order for Tweet-DL to work properly. Its location is `<YOUR_HOMEDIR>/.config/tweet-dl/config.json`
@@ -76,5 +78,5 @@ Download by Tweet URL:
 Download by Tweet ID:  
 `tweet-dl 1460488451304738817`
 
-Download multiple files:  
+Download multiple Tweets:  
 `tweet-dl 1460488451304738817 https://twitter.com/github/status/1460696683705208837?s=20`
