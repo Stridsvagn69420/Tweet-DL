@@ -1,7 +1,7 @@
 # Tweet-DL
 A command-line downloader to download images from multiple Tweets or your bookmarks
 
-<img src="https://camo.githubusercontent.com/..." data-canonical-src="/.github/TweetDL.png" width="128px" />
+<img src="/.github/TweetDL.png" width="128px" />
 
 # Installation
 ## Downloading the executable
