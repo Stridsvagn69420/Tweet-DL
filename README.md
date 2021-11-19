@@ -1,7 +1,6 @@
 # Tweet-DL
+<img src="/.github/TweetDL.png" width="96px" />
 A command-line downloader to download images from multiple Tweets or your bookmarks
-
-<img src="/.github/TweetDL.png" width="128px" />
 
 # Installation
 ## Downloading the executable
