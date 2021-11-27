@@ -17,11 +17,15 @@ namespace Tweet_DL
             {
                 response.data.bookmark_timeline.timeline.instructions[0].entries.FindAll(x => x.entryId.StartsWith("tweet")).ForEach(tweet =>
                 {
-                    JSON.Entities entities = tweet.content.itemContent.tweet_results.result.legacy.entities;
-                    if (entities.media != null) entities.media.ForEach(media =>
-                    {
-                        result.Add(media.media_url_https);
-                    });
+                    try {
+                        List<JSON.Medium> media = tweet.content.itemContent.tweet_results.result.legacy.entities.media;
+                        if (media.Count > 0) media.ForEach(media =>
+                        {
+                            result.Add(media.media_url_https);
+                        });
+                    } catch (NullReferenceException) {
+                        //do nothing
+                    }
                 });
             }
             return result;
@@ -51,14 +55,16 @@ namespace Tweet_DL
             Console.WriteLine("Getting initial bookmark entry...");
             JSON resJSON = GetBookmarksJSON();
             result.Add(resJSON);
+            List<string> usedCursors = new();
             string resCursor = resJSON.data.bookmark_timeline.timeline.instructions[0].entries.Find(x => x.entryId.StartsWith("cursor-bottom")).content.value;
-            while (true)
+            while (!usedCursors.Contains(resCursor))
             {
                 count++;
+                usedCursors.Add(resCursor);
                 Printer.Print(ConsoleColor.Cyan, $"[{count}] ");
                 Console.WriteLine($"Getting entry at {resCursor}...");
                 resJSON = GetBookmarksJSON(resCursor);
-                if (resJSON.data.bookmark_timeline.timeline.instructions[0].entries.Find(x => x.entryId.StartsWith("cursor-bottom")).content.value == resCursor)
+                if (usedCursors.Contains(resJSON.data.bookmark_timeline.timeline.instructions[0].entries.Find(x => x.entryId.StartsWith("cursor-bottom")).content.value))
                 {
                     Printer.PrintLine(ConsoleColor.Cyan, $"Found final entry at {resCursor}!");
                     break;
