@@ -12,12 +12,12 @@ Use this if you already have the .NET SDK installed:
 ### Pre-compiled (Recommended)
 Pre-compiled versions available:  
 __Windows:__
-* Windows AMD64
+* Windows x64
 * Windows ARM
 * Windows ARM64
 
 __Linux:__
-* Linux AMD64
+* Linux x64
 * Linux ARM
 * Linux ARM64
 
