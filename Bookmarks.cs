@@ -17,13 +17,16 @@ namespace Tweet_DL
             {
                 response.data.bookmark_timeline.timeline.instructions[0].entries.FindAll(x => x.entryId.StartsWith("tweet")).ForEach(tweet =>
                 {
-                    try {
+                    try
+                    {
                         List<JSON.Medium> media = tweet.content.itemContent.tweet_results.result.legacy.entities.media;
                         if (media.Count > 0) media.ForEach(media =>
                         {
                             result.Add(media.media_url_https);
                         });
-                    } catch (NullReferenceException) {
+                    }
+                    catch (NullReferenceException)
+                    {
                         //do nothing
                     }
                 });
@@ -68,11 +71,12 @@ namespace Tweet_DL
                 {
                     Printer.PrintLine(ConsoleColor.Cyan, $"Found final entry at {resCursor}!");
                     break;
-                } else
+                }
+                else
                 {
                     result.Add(resJSON);
                     resCursor = resJSON.data.bookmark_timeline.timeline.instructions[0].entries.Find(x => x.entryId.StartsWith("cursor-bottom")).content.value;
-                    Thread.Sleep((int) Math.Round(_config.delay * 1.4));
+                    Thread.Sleep((int)Math.Round(_config.delay * 1.4));
                 }
             }
             return result;

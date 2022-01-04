@@ -24,7 +24,8 @@ namespace Tweet_DL
             {
                 Console.WriteLine("Reading config.json...");
                 config = GetConfig();
-            } catch (FileNotFoundException)
+            }
+            catch (FileNotFoundException)
             {
                 Printer.PrintLine(ConsoleColor.Red, "config.json not found! Make sure you installed Tweet-DL correctly:");
                 Console.WriteLine("https://github.com/Stridsvagn69420/Tweet-DL#Installation");
@@ -33,7 +34,7 @@ namespace Tweet_DL
             if (args.Length > 0)
             {
                 client.DefaultRequestHeaders.Authorization = new("Bearer", config.apiAuth.bearerToken);
-                Regex URLregex = new ("twitter\\.com/[a-zA-Z]+/status/[0-9]+", RegexOptions.IgnoreCase);
+                Regex URLregex = new("twitter\\.com/[a-zA-Z]+/status/[0-9]+", RegexOptions.IgnoreCase);
                 Regex IDregex = new("[0-9]{19}", RegexOptions.IgnoreCase);
                 List<string> IDs = new();
                 foreach (string tweet in args)
@@ -43,32 +44,37 @@ namespace Tweet_DL
                         Uri tweetURL = new(tweet);
                         URLregex.IsMatch(tweetURL.Host + tweetURL.AbsolutePath);
                         IDs.Add(tweetURL.AbsolutePath.Split("/")[3]);
-                    } else if (IDregex.IsMatch(tweet)) IDs.Add(tweet);
+                    }
+                    else if (IDregex.IsMatch(tweet)) IDs.Add(tweet);
                 }
                 if (IDs.Count == 0)
                 {
                     Printer.PrintLine(ConsoleColor.Red, "Not Tweet URLs or Tweet IDs set! Exiting...");
                     return 1;
-                } else
+                }
+                else
                 {
                     Tweet.JSON tweets;
                     try
                     {
                         Console.WriteLine($"Getting images of {IDs.Count} Tweets...");
                         tweets = new Tweet(client, config).GetTweets(IDs);
-                    } catch (HttpRequestException e)
+                    }
+                    catch (HttpRequestException e)
                     {
                         Printer.PrintLine(ConsoleColor.Red, "An error occured while making a request to Twitter's API:");
                         Printer.PrintLine(ConsoleColor.Red, e.Message);
                         return 1;
                     }
                     List<string> URLs = new();
-                    tweets.includes.media.ForEach(delegate (Tweet.JSON.Medium medium) {
+                    tweets.includes.media.ForEach(delegate (Tweet.JSON.Medium medium)
+                    {
                         if (medium.type == "photo") URLs.Add(medium.url);
                     });
                     new Downloader(client, config.downloadDir, config.delay).DownloadURLs(URLs);
                 }
-            } else
+            }
+            else
             {
                 List<JSON> allJSON;
                 try
