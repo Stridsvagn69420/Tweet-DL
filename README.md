@@ -7,7 +7,7 @@ A command-line downloader to download images from multiple Tweets or your bookma
 ### Platform-Dependent (Recommended if .NET SDK installed)
 Use this if you already have the .NET SDK installed:
 * Download the latest Platform-Depdendent `Tweet-DL.zip` and [configure it like this](#adding-execute-script-only-platform-dependent)
-* (WIP) Alternatively, you can install the Platform-Dependent version via the [jitter packet manager](https://github.com/Stridsvagn69420/jitter).
+* (WIP) Alternatively, you can install the Platform-Dependent version via the [Kagero packet manager](https://github.com/Stridsvagn69420/Kagero).
 
 ### Pre-compiled (Recommended)
 Pre-compiled versions available:  
