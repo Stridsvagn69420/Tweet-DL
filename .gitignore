@@ -364,3 +364,5 @@ FodyWeavers.xsd
 
 # VSCode files
 .vscode
+.vs
+*.sln
