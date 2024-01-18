@@ -1,69 +1,14 @@
 # Tweet-DL
 <img src=".github/TweetDL.png" width="96px" />
-A command-line downloader to download images from multiple Tweets or your bookmarks
+A command-line downloader to download images from multiple Tweets or your bookmarks  
 
-# Installation
-## Downloading the executable
-### Platform-Dependent (Recommended if .NET SDK installed)
-Use this if you already have the .NET SDK installed:
-* Download the latest Platform-Depdendent `Tweet-DL.zip` and [configure it like this](#adding-execute-script-only-platform-dependent)
-* (WIP) Alternatively, you can install the Platform-Dependent version via the [Kagero packet manager](https://github.com/Stridsvagn69420/Kagero).
+<hr>
 
-### Pre-compiled (Recommended)
-Pre-compiled versions available:  
-__Windows:__
-* Windows x64
-* Windows ARM
-* Windows ARM64
+## **NOTE: This repository is deprecated!**  
+This was one of my first serious coding projects and I hate to see that it does not work anymore. It has not for more than a year now and I don't want to bother with the Twitter/X API again, especially since I don't use it very often anymore.  
+I'll still keep it here for historical and educational purposes, but if I were to re-make it, I'd do it properly (use the GraphQL API like you're supposed to, proper formatting and structuring, etc.), but also add Mastodon and Blueksky. Probably won't happen though.
 
-__Linux:__
-* Linux x64
-* Linux ARM
-* Linux ARM64
-
-Just download the one you need from GitHub's release page
-
-### Self-compiled
-NOTE: You need to have .NET 6 SDK installed  
-(Optionally you can change the `<TargetFramework>` in `Tweet-DL.csproj` to `net5.0` if you already have .NET 5 SDK installed)
-
-Get the [Runtime-ID](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog) for your OS and run this command (replace <YOUR_RID> with your Runtime ID):
-```sh
-dotnet publish -c Release -r <YOUR_RID> --self-contained true -p:PublishSingleFile=true -p:IncludeAllContentForSelfExtract=true -p:PublishTrimmed=True -p:TrimMode=CopyUsed
-```
-
-### Clone repository
-Clone this repository and use `dotnet run` to run Tweet-DL.  
-NOTE: This will compile from source first and then execute the application, thus start-up time will be the longest.
-
-## Setting up config.json
-This file needs to manually be added in order for Tweet-DL to work properly. Its location is `<YOUR_HOMEDIR>/.config/tweet-dl/config.json`
-```js
-{
-	"delay": 69, //delay in ms for requests, must not be 0 and set higher if download fails
-	"downloadDir": "C:/path/to/download/dir", //path to your prefered download folder
-	"userAuth": {
-		"cookie": "<YOUR_COOKIE_HEADER_HERE",
-		"csrfToken": "<YOUR_X-CSRF-TOKEN_HEADER_HERE>"
-	},
-	"apiAuth": {
-		"bearerToken": "<YOUR_BEARER_HERE>", //Bearer Token of Twitter API Application
-	}
-}
-```
-To get the Cookie and X-CSRF-Token header, you need to log-in into Twitter and open your browser's developer tools.
-[How to get HTTP headers from Chrome DevTools](https://stackoverflow.com/questions/4423061/how-can-i-view-http-headers-in-google-chrome)
-
-## Configuring PATH
-You'll have to either place the independent platform binary/add a symlink linking to the binary inside a folder listed in PATH or [add the folder, which contains the Tweet-DL executeable, to your PATH variable](https://gist.github.com/nex3/c395b2f8fd4b02068be37c961301caa7).
-
-### Adding execute script (only Platform-Dependent)
-Instead of placing the binary/making a symlink into a folder listed inside your PATH, you have to add a little script that acts as an entry point:
-```sh
-#!/bin/sh
-cd /path/to/tweetdl
-dotnet Tweet-DL.dll "$@"
-```
+<hr>
 
 # Usage
 ## Download Twitter Bookmarks
